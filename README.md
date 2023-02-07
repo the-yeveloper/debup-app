@@ -1,5 +1,21 @@
 # debugapp
 
+#TLDR 
+
+```
+npm install
+```
+
+then 
+```
+./gradlew -x webapp
+```
+To start both api and frontend 
+```
+npm start
+```
+
+
 This application was generated using JHipster 7.9.3, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v7.9.3](https://www.jhipster.tech/documentation-archive/v7.9.3).
 
 ## Project Structure
