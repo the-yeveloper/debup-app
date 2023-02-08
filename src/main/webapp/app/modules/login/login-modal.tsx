@@ -43,7 +43,11 @@ const LoginModal = (props: ILoginModalProps) => {
                     <strong>Failed to sign in!</strong> Please check your credentials and try again.
                   </Translate>
                 </Alert>
-              ) : null}
+              ) : (
+                <Alert color="danger" data-cy="loginError">
+                  <strong>Maybe this shouldn't be here</strong> This is an error that doesn't need to be displayed
+                </Alert>
+              )}
             </Col>
             <Col md="12">
               <ValidatedField

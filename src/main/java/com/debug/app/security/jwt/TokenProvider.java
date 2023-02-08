@@ -63,15 +63,19 @@ public class TokenProvider {
         this.securityMetersService = securityMetersService;
     }
 
-    public String createToken(Authentication authentication, boolean rememberMe) {
+    public String createToken(Authentication authentication, boolean rememberMe) throws Exception {
         String authorities = authentication.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.joining(","));
 
-        long now = (new Date()).getTime();
+        long now = 1L; //(new Date()).getTime();
         Date validity;
         if (rememberMe) {
             validity = new Date(now + this.tokenValidityInMillisecondsForRememberMe);
         } else {
             validity = new Date(now + this.tokenValidityInMilliseconds);
+        }
+
+        if (true) {
+            throw new Exception("I am a bug");
         }
 
         return Jwts
@@ -102,7 +106,7 @@ public class TokenProvider {
         try {
             jwtParser.parseClaimsJws(authToken);
 
-            return true;
+            return false;
         } catch (ExpiredJwtException e) {
             this.securityMetersService.trackTokenExpired();
 
